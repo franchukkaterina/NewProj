@@ -14,10 +14,12 @@ namespace NewProj
             list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
             list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
             list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
+            ist.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
             list.ForEach(Console.WriteLine);
 
             list.Remove(new InfoUser("serh1", "srth1", "dyjdty1", 3, "erkgh1", "ieurg1", "keru1"));
             list.ForEach(Console.WriteLine);
+
 
             list.Clear();
             list.ForEach(Console.WriteLine);
