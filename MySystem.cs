@@ -1,18 +1,36 @@
-public class MySystem : List<T>, IDisposable
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class MySystem<T> : List<T>, IDisposable where T : InfoUser
 {
-    public void Add(InfoUser user){
-        this.Add(user);
+
+    public MySystem() : base(){}
+
+    public new void Add(T user){
+        base.Add(user);
     }
 
-    public void Remove(InfoUser user){
-        this.Remove(user);
+    public new void Remove(T user){
+        for (int i = 0; i < this.Count; i++)
+        {
+            if(this[i].Equals(user)){
+                 base.Remove(this[i]);
+                 Console.WriteLine($"Text");
+                 
+            }
+        }
     }
 
-    public void findAll(){
-
+    public new List<T> FindAll(Predicate<T> pred){
+        return base.FindAll(pred);
     }
 
-    public void Clear(){
+    public new void Clear(){
+        base.Clear();
+    }
 
+    public  void Dispose(){
+        GC.Collect(GC.GetGeneration(this));
     }
 }

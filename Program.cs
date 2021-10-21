@@ -5,82 +5,22 @@ using System.Linq;
 
 namespace NewProj
 {
-
-    public class User {
-    public string Login { get; set; }
-    
-    public string Parole { get; set; }
-    
-    public string Email { get; set; }
-    
-    
-    
-    public User(string login, string parole, string email){
-        this.Login=login;
-        this.Parole=parole;
-        this.Email=email;
-    }
-
-    public override string ToString()
-    {
-        return $"User: {this.Login}, Parole: {this.Parole}, Email is {this.Email}";
-    }
-
-    }
-
-    public class InfoUser : User {
-    public int Age { get; set; }
-    public string Name { get; set; }
-    
-    public string Lastname { get; set; }
-    
-    public string Middlname { get; set; }
-    
-    public InfoUser(int age, string name, string lastname, string middlname){
-        this.Age=age;
-        this.Name=name;
-        this.Lastname=lastname;
-        this.Middlname=middlname; 
-    }
-
-
-    public override string ToString()
-    {
-        return base.ToString + $", Age user: {this.Age}, Full Name User is: {this.Name} {this.LastName} {this.Middlname}";
-    }
-    
-    }
-
-    public class MySystem : List<T>, IDisposable {
-    public void Add(InfoUser user){
-        this.Add(user);
-    }
-
-    public void Remove(InfoUser user){
-        this.Remove(user);
-    }
-
-    public List findAll(){
-        List res;
-        return res = this.All<int>((x) => x > 10);
-    }
-
-    public void Clear(){
-        this.Clear();
-    }
-    
-    public  void Dispose(){
-            GC.Collect(GC.GetGeneration(this));
-    }
-
-    }
-
     class Program
     {
-        
         static void Main(string[] args)
         {
-            
+            MySystem<InfoUser> list = new MySystem<InfoUser>();
+            list.Add(new InfoUser("serh1", "srth1", "dyjdty1", 3, "erkgh1", "ieurg1", "keru1"));
+            list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
+            list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
+            list.Add(new InfoUser("serh", "srth", "dyjdty", 3, "erkgh", "ieurg", "keru"));
+            list.ForEach(Console.WriteLine);
+
+            list.Remove(new InfoUser("serh1", "srth1", "dyjdty1", 3, "erkgh1", "ieurg1", "keru1"));
+            list.ForEach(Console.WriteLine);
+
+            list.Clear();
+            list.ForEach(Console.WriteLine);
         }
 
     }
